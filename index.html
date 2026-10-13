@@ -132,6 +132,27 @@ h2{font-family:'Aref Ruqaa',serif;font-size:clamp(2.2rem,7vw,3.6rem);color:var(-
 #reason-box{margin-top:26px;min-height:120px;max-width:560px;background:var(--card);border:1px solid var(--cardb);border-radius:18px;padding:22px;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:transform .4s}
 #reason-box.pop{transform:scale(1.04)}
 
+/* ===== Dreams ===== */
+.eng{margin-top:30px;width:min(620px,100%);background:linear-gradient(135deg,rgba(255,127,174,.14),rgba(245,213,138,.12));border:1px solid var(--line);border-radius:22px;padding:24px 16px}
+.eng .lbl{font-family:'Aref Ruqaa',serif;font-size:clamp(1.4rem,5vw,1.9rem);color:var(--gold)}
+.eng .date{color:var(--rose);margin-top:4px;letter-spacing:.15em}
+.eng .since-grid{margin-top:18px}
+.tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;width:min(900px,100%);margin-top:40px}
+.ticket{display:flex;background:#fffaf3;color:#3d2030;border-radius:16px;overflow:hidden;box-shadow:0 16px 36px rgba(0,0,0,.4);text-align:right;transform:rotate(var(--r));transition:transform .4s}
+.ticket:hover{transform:rotate(0) translateY(-6px)}
+.t-main{flex:1;padding:16px 18px;position:relative}
+.t-top{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:#9a6a80;letter-spacing:.08em}
+.t-code{font-family:'Tajawal';font-weight:700;font-size:2rem;color:#9e1f3c;direction:ltr;text-align:right;line-height:1.2;margin-top:6px}
+.t-city{font-family:'Aref Ruqaa',serif;font-size:1.5rem;line-height:1.3}
+.t-note{font-size:.85rem;color:#7a5566;margin-top:2px}
+.t-row{display:flex;gap:16px;margin-top:10px;font-size:.75rem;color:#9a6a80}
+.t-row b{display:block;color:#3d2030;font-size:.9rem}
+.t-stub{width:74px;border-right:2px dashed #e5c9d4;display:grid;place-items:center;background:linear-gradient(180deg,#f7dbe6,#f2c9d8);position:relative}
+.t-stub span{writing-mode:vertical-rl;font-family:'Aref Ruqaa',serif;color:#9e1f3c;font-size:1.1rem}
+.t-stub:before,.t-stub:after{content:"";position:absolute;right:-9px;width:16px;height:16px;border-radius:50%;background:var(--night)}
+.t-stub:before{top:-8px}.t-stub:after{bottom:-8px}
+.stamp{position:absolute;left:12px;bottom:12px;border:2px solid #c9718f;color:#c9718f;border-radius:8px;padding:2px 8px;font-size:.75rem;font-weight:700;transform:rotate(-12deg);opacity:.85}
+
 /* ===== Wish ===== */
 .cake{position:relative;width:min(340px,86vw);margin-top:60px}
 .candles{display:flex;flex-wrap:nowrap;justify-content:center;gap:4px;padding:0 6px;margin-bottom:-4px;position:relative;z-index:2}
@@ -243,6 +264,24 @@ footer{position:relative;z-index:2;text-align:center;padding:40px 18px 60px;colo
     <div id="reason-box" class="reveal">اختاري نجمة</div>
   </section>
 
+  <!-- ===== أحلامنا ===== -->
+  <section id="dreams">
+    <h2 class="reveal">أحلامنا سوا</h2>
+    <p class="sub reveal">التذاكر محجوزة باسمنا، فاضل بس الميعاد</p>
+    <div class="eng reveal">
+      <div class="lbl">فاضل على خطوبتنا إن شاء الله</div>
+      <div class="date" id="eng-date"></div>
+      <div class="since-grid">
+        <div><b id="e-d">٠</b><span>يوم</span></div>
+        <div><b id="e-h">٠</b><span>ساعة</span></div>
+        <div><b id="e-m">٠</b><span>دقيقة</span></div>
+        <div><b id="e-s">٠</b><span>ثانية</span></div>
+      </div>
+      <p class="sub">يا رب يا رب يا رب</p>
+    </div>
+    <div class="tickets" id="tickets"></div>
+  </section>
+
   <!-- ===== ٨. الأمنية ===== -->
   <section id="wish">
     <h2 class="reveal">اتمني أمنية</h2>
@@ -296,7 +335,8 @@ const DATA = {
     { year:"٢٠٢١ لـ ٢٠٢٣", title:"طلعنا ونزلنا", text:"سبنا بعض فترات طويلة، ورجعنا كل مرة. ملناش غير بعض، وحياة كل واحد فينا مبتكملش غير بالتاني.", photo:"photos/04.jpg" },
     { year:"البطاطس بالبهارات", title:"ذكرتك المفضلة", text:"عارف إنك بتضحكي دلوقتي. لسه فاكرها زيك بالظبط.", photo:"" },
     { year:"٢٠٢٦", title:"٢٣ سنة", text:"وأنا لسه بحبك زي ما كنت في ابتدائي، وأكتر.", photo:"photos/12.jpg" },
-    { year:"اللي جاي", title:"بورسعيد، إسطنبول، والدنيا كلها", text:"هنسافرهم سوا إن شاء الله، واحدة واحدة.", photo:"" }
+    { year:"١٤ / ١١ / ٢٠٢٧", title:"خطوبتنا إن شاء الله", text:"السنة الجاية. يا رب.", photo:"" },
+    { year:"اللي جاي", title:"الدنيا كلها", text:"بورسعيد وإسطنبول وأمريكا وأوروبا والمالديف، وشهر عسل هنقضيه حلو أوي إن شاء الله.", photo:"" }
   ],
 
   photos: [
@@ -326,19 +366,30 @@ const DATA = {
 
   reasons: [
     "ضحكتك","صوتك وانتي بتحكيلي حاجة متحمسة ليها","إنك بتفتكري التفاصيل الصغيرة","طيبة قلبك مع الناس","إنك بيتي",
-    "عنادك الحلو","لما تزعلي وتضحكي في نص الزعل","عينيكي","إنك مصدقة فيا","دماغك",
-    "إنك صاحبتي قبل أي حاجة","هدوءك لما الدنيا تتلخبط","إنك كبرتي قدامي وكل سنة بتحلوي","اهتمامك بيا من غير ما أطلب","طريقتك وانتي بتقولي اسمي",
-    "صبرك عليا","الأمان اللي بحسه وانتي جنبي","أحلامك","إنك بتفرحي بأبسط حاجة","ذوقك",
+    "عنادك الحلو","لما تزعلي وتضحكي في نص الزعل","عينيكي","إنك مصدقة فيا","شغفك بشغلك، وده بيخليني فخور بيكي جدًا",
+    "إنك صاحبتي قبل أي حاجة","حب الناس ليكي","إنك كبرتي قدامي وكل سنة بتحلوي","اهتمامك بيا من غير ما أطلب","طريقتك وانتي بتقولي اسمي",
+    "صبرك عليا","الأمان اللي بحسه وانتي جنبي","أحلامك","إنك بتفرحي بأبسط حاجة","حبك لأهلك",
     "إنك بتخليني أحسن","الذكريات اللي لسه هنعملها سوا","إنك مي"
+  ],
+
+  engagement: "2027-11-14T00:00:00+02:00",
+  engagementLabel: "١٤ / ١١ / ٢٠٢٧",
+  dreams: [
+    { code:"PSD", city:"بورسعيد", note:"أول رحلة في الليستة" },
+    { code:"IST", city:"إسطنبول", note:"شوارعها ومراكبها" },
+    { code:"USA", city:"أمريكا", note:"من أولها لآخرها" },
+    { code:"EUR", city:"أوروبا", note:"بلد بلد" },
+    { code:"MLE", city:"المالديف", note:"فيلا ببرايفت بول" },
+    { code:"HNY", city:"شهر العسل", note:"هنقضيه حلو أوي إن شاء الله" }
   ],
 
   wishMsg: "اتمنيتي؟ أنا كمان. أمنيتي إني أكون جنبك في كل ١٤ أكتوبر جاي",
 
   letter: [
     "يا مي،",
-    "أنا بحبك من وأنا في ابتدائي، ومع بعض من ٩ فبراير ٢٠١٨. عدينا بحاجات كتير، وسبنا بعض فترات طويلة، وكل مرة كنا بنرجع. رجعنا عشان بنحب بعض بجد، وعشان ملناش غير بعض.",
-    "عايز أقولك إني بحبك، وإني هفضل أساعدك بكل طاقتي، وهحاول أعملك كل اللي نفسك فيه إن شاء الله.",
-    "لسه ورانا بورسعيد وإسطنبول والدنيا كلها، وطبق بطاطس بالبهارات في كل مكان فيهم.",
+    "مهما اتخانقنا، ومهما زعلتي مني وزعلت منك، ومهما تعبنا بعض وشيلنا من بعض، فأنا هفضل أحبك، وهفضل أصالحك، وهفضل أبعد أي حاجة ممكن تعطل طريقنا سوا، وأعطل أي حاجة ممكن تلهيني عن هدفنا.",
+    "أنا عايش يومي وبصحى الصبح علشان خاطر أوصلك أسرع وأوصلك أقرب. في طفولتي ومراهقتي وشبابي وشيبتي، هفضل أحاول علشانك انتي، مش علشان حد تاني. علشانك انتي بس.",
+    "لأنك انتي اتخلقتي علشاني، وأنا اتخلقت علشانك، وهأكدلك ده إن شاء الله.",
     "كل سنة وانتي طيبة يا أحلى حاجة في حياتي."
   ],
   sign: "عمر"
@@ -623,6 +674,30 @@ function fireworks(ms){
   (function go(){ burst(Math.random()*innerWidth, Math.random()*innerHeight*.55+40, 90);
     if(Date.now()<end) setTimeout(go, 380); })();
 }
+
+/* ---- أحلامنا ---- */
+$('#eng-date').textContent = DATA.engagementLabel;
+const engT = new Date(DATA.engagement).getTime();
+function engTick(){
+  const left = Math.max(0, engT - Date.now());
+  $('#e-d').textContent = ar(Math.floor(left/864e5));
+  $('#e-h').textContent = ar(Math.floor(left/3.6e6)%24);
+  $('#e-m').textContent = ar(Math.floor(left/6e4)%60);
+  $('#e-s').textContent = ar(Math.floor(left/1e3)%60);
+}
+engTick(); setInterval(engTick, 1000);
+$('#tickets').innerHTML = DATA.dreams.map((d,i) => `
+  <div class="ticket reveal" style="--r:${(i%2?1:-1)*(1+Math.random()*2)}deg">
+    <div class="t-main">
+      <div class="t-top"><span>بطاقة صعود</span><span>رحلة MO-${String(i+1).padStart(2,'0')}</span></div>
+      <div class="t-code">CAI → ${d.code}</div>
+      <div class="t-city">${d.city}</div>
+      <div class="t-note">${d.note}</div>
+      <div class="t-row"><div>الركاب<b>عمر ومي</b></div><div>المقاعد<b>جنب بعض</b></div></div>
+      <div class="stamp">قريب إن شاء الله</div>
+    </div>
+    <div class="t-stub"><span>${d.city}</span></div>
+  </div>`).join('');
 
 /* ---- الجواب ---- */
 $('#letter-body').innerHTML = DATA.letter.map(p => `<p>${p}</p>`).join('');
